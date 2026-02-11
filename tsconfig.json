@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "declaration": false,
+    "noImplicitAny": false,
+    "jsx": "react-jsx",
+    "sourceMap": true,
+    "noLib": false,
+    "ignoreDeprecations": "5.0",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "types": ["node", "vite/client", "vite-plugin-svgr/client"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": "src",
+    "paths": {
+      "pages/*": ["./pages/*"],
+      "components/*": ["./components/*"],
+      "utils/*": ["./utils/*"],
+      "common/*": ["./common/*"],
+      "hooks/*": ["./hooks/*"],
+      "types/*": ["./types/*"],
+      "assets/*": ["./assets/*"],
+      "@redux/*": ["./redux/*"]
+    }
+  },
+  "exclude": ["node_modules", "build"],
+  "include": ["src/**/*", "src/index.js", "src/index.tsx"]
+}

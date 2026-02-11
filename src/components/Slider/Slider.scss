@@ -1,0 +1,57 @@
+@use "../../assets/styles/variables.scss" as *;
+@use "../../assets/styles/mixin.scss" as *;
+
+.slider {
+  position: relative;
+  width: 100%;
+  @include dis-fl-colm;
+  gap: 70px;
+  overflow-x: hidden;
+
+  &__track {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    background-color: $bg-secondary;
+    border-radius: 17px;
+    width: fit-content;
+  }
+
+  &__nav {
+    &__icon {
+      display: flex;
+    }
+  }
+
+  &__divider {
+    background-color: $gray-secondary;
+    height: 24px;
+    width: 2px;
+  }
+
+  & .button {
+    &.slider {
+      &__nav {
+        width: auto;
+        padding: 20px 0px;
+        line-height: initial;
+        border-radius: 17px;
+
+        &--next {
+          padding-left: 30px;
+          padding-right: 28px;
+        }
+
+        &--prev {
+          padding-left: 28px;
+          padding-right: 30px;
+        }
+      }
+    }
+  }
+}

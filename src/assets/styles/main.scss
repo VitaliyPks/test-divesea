@@ -1,0 +1,12 @@
+@use "variables";
+@use "normalize";
+@use "fonts";
+@use "core";
+
+// Components
+@use "../../components/NftCard/NftCard.scss";
+@use "../../components/Slider/Slider.scss";
+
+
+// Base Components
+@use "../../components/base/Button";

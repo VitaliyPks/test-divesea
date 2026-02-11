@@ -1,0 +1,84 @@
+@use "../../assets/styles/variables.scss" as *;
+@use "../../assets/styles/mixin.scss" as *;
+
+.nft-card {
+  @include dis-fl-colm;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 281px;
+  width: 100%;
+  background-color: $bg-light;
+  padding: 14px;
+  border-radius: 24px;
+  height: 100%;
+
+  box-shadow: 38px 12px 60px 0px $secondary;
+
+  &__image {
+    &-container {
+      position: relative;
+      border-radius: 24px;
+    }
+  }
+
+  &__timer {
+    position: absolute;
+    border-radius: 10px;
+    padding: 10px 14px;
+    top: 14px;
+    right: 11px;
+    font-size: 14px;
+    color: $text-light;
+    font-weight: 500;
+    background-color: #1c1d2059;
+    border: 1px solid #1c1d2014;
+  }
+
+  &__content {
+    @include dis-fl-colm;
+    justify-content: space-between;
+    gap: 20px;
+    height: 100%;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 24px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    &-item {
+      @include dis-fl-colm;
+      gap: 4px;
+    }
+
+    &-label {
+      color: $text-secondary;
+      white-space: nowrap;
+      font-size: 14px;
+    }
+
+    &-value {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+    }
+
+    & .button {
+      &.nft-card {
+        &__btn {
+          font-size: 14px;
+          line-height: 1.5;
+          padding: 14.5px 25px;
+          width: auto;
+        }
+      }
+    }
+  }
+}

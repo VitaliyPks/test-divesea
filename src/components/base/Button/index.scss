@@ -1,0 +1,56 @@
+@use "../../../assets/styles/variables.scss" as *;
+
+.button {
+  width: 100%;
+  border-radius: 12px;
+  line-height: 20px;
+  font-weight: 600;
+  padding: 8px 0px;
+  color: $text-light;
+  background-color: $accent;
+  text-align: center;
+
+  &:hover {
+    background-color: $accent-light;
+  }
+
+  &:active {
+    background-color: $accent;
+  }
+
+  &.error {
+    background-color: $red;
+
+    &:hover {
+      background-color: $red-light;
+    }
+  }
+
+  &.green-transparent {
+    color: $accent;
+    background-color: transparent;
+    outline: 1px solid $gray;
+
+    &:hover {
+      background-color: $gray;
+    }
+  }
+
+  &.dark {
+    color: $text-light;
+    background-color: $bg-dark;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &.light {
+    background-color: $bg-secondary;
+  }
+
+  &:disabled {
+    cursor: default;
+    background-color: $gray;
+  }
+}
