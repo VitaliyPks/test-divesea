@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 import { ReactComponent as EthereumIcon } from "assets/icons/mdi_ethereum.svg";
 
 import { useTimer } from "hooks/useTimer";
@@ -12,6 +10,7 @@ interface INFTCardProps {
   endTime: number;
   currentBid: string;
   onClick?: () => void;
+  refCard: (element: HTMLOrSVGElement) => void;
 }
 
 export const NftCard = ({
@@ -20,12 +19,13 @@ export const NftCard = ({
   endTime,
   currentBid,
   onClick,
+  refCard,
 }: INFTCardProps) => {
   const base = "nft-card";
   const timeRemaining = useTimer(endTime);
 
   return (
-    <motion.div className={base}>
+    <div ref={refCard} className={base}>
       <div className={`${base}__image-container`}>
         <img src={image} alt={name} className={`${base}__image`} />
         <span className={`${base}__timer`}>{timeRemaining}</span>
@@ -38,9 +38,8 @@ export const NftCard = ({
           <div className={`${base}__info-item`}>
             <span className={`${base}__info-label`}>Current Bid</span>
             <span className={`${base}__info-value`}>
-              <span className={`${base}__info-icon`}>
-                <EthereumIcon />
-              </span>
+              <EthereumIcon className={`${base}__info-icon`} />
+
               {currentBid}
             </span>
           </div>
@@ -50,6 +49,6 @@ export const NftCard = ({
           </Button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };

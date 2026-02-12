@@ -12,7 +12,7 @@ export const Footer = () => {
       <div className={`${base}__content`}>
         <div className={`${base}__body`}>
           <div className={`${base}__logo`}>
-            <WaveIcon />
+            <WaveIcon className={`${base}__icon`} />
             <h3 className={`${base}__title`}>DiveSea</h3>
           </div>
           <div className={`${base}__tabs`}>

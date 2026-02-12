@@ -10,13 +10,13 @@
   background-color: $bg-light;
   padding: 14px;
   border-radius: 24px;
-  height: 100%;
 
   box-shadow: 38px 12px 60px 0px $secondary;
 
   &__image {
     &-container {
       position: relative;
+      display: flex;
       border-radius: 24px;
     }
   }
@@ -77,6 +77,69 @@
           line-height: 1.5;
           padding: 14.5px 25px;
           width: auto;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    max-width: 210px;
+    gap: 14px;
+    padding: 10px;
+    border-radius: 18px;
+
+    &__content {
+      gap: 14px;
+    }
+
+    &__image {
+      height: 190px;
+      width: 190px;
+    }
+
+    &__timer {
+      padding: 7px 10px;
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    &__title {
+      font-size: 16px;
+      line-height: 18px;
+    }
+
+    &__info {
+      gap: 10px;
+
+      &-item {
+        @include dis-fl-colm;
+        gap: 7px;
+      }
+
+      &-label {
+        font-size: 11px;
+        line-height: 11px;
+      }
+
+      &-icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      &-value {
+        font-size: 12px;
+        line-height: 14px;
+        gap: 3px;
+      }
+
+      & .button {
+        &.nft-card {
+          &__btn {
+            font-size: 11px;
+            line-height: 17px;
+            padding: 10.5px 17.5px;
+            height: fit-content;
+          }
         }
       }
     }

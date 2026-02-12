@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import { ReactComponent as Logo } from "assets/icons/Logo.svg";
 
 import { HEADER_TABS } from "utils/constants";
@@ -9,7 +11,11 @@ export const Header = () => {
 
   return (
     <div className={base}>
-      <div className={`${base}__content`}>
+      <motion.div
+        initial={{ y: -90 }}
+        animate={{ y: 0 }}
+        className={`${base}__content`}
+      >
         <Logo className={`${base}__logo`} />
         <div className={`${base}__tabs`}>
           {HEADER_TABS.map((tab) => (
@@ -18,7 +24,7 @@ export const Header = () => {
             </Button>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

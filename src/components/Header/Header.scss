@@ -3,6 +3,8 @@
 .header {
   padding: 46px 337px;
   background-color: $page-secondary;
+  position: sticky;
+  top: 0px;
 
   &__content {
     display: flex;
@@ -18,7 +20,29 @@
   .button {
     &.header {
       &__tab {
+        font-size: 18px;
         font-weight: 500;
+      }
+    }
+  }
+
+  @media (max-width: 1440px) {
+    padding: 46px 97px;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 33px 67px;
+
+    &__logo {
+      width: 38px;
+      height: 38px;
+    }
+
+    .button {
+      &.header {
+        &__tab {
+          font-size: 14px;
+        }
       }
     }
   }

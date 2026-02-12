@@ -68,4 +68,49 @@
       }
     }
   }
+
+  @media (max-width: 1024px) {
+    gap: 50px;
+    padding-bottom: 50px;
+
+    &__title {
+      font-size: 32px;
+      line-height: 36px;
+      margin-top: 50px;
+    }
+
+    &__track {
+      gap: 32px;
+    }
+
+    &__controls {
+      border-radius: 13px;
+    }
+
+    & .button {
+      &.slider {
+        &__nav {
+          padding: 15px 0px;
+          border-radius: 13px;
+
+          &--next {
+            padding-left: 22px;
+            padding-right: 21px;
+          }
+
+          &--prev {
+            padding-left: 21px;
+            padding-right: 22px;
+          }
+        }
+      }
+    }
+
+    &__nav {
+      &__icon {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
 }
