@@ -21,6 +21,15 @@ export const SLIDER_CONFIG = {
   AUTO_PLAY: 5000,
 };
 
+export const HEADER_TABS = ["discover", "creators", "sell", "stats"];
+
+export const FOOTER_TABS = [
+  "Privacy Policy",
+  "Term & Conditions",
+  "About Us",
+  "Contact",
+ ];
+
 export const MOCK_DATA = [
   {
     id: "autoglyphs",

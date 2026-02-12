@@ -1,0 +1,66 @@
+@use "../../assets/styles/variables.scss" as *;
+@use "../../assets/styles/mixin.scss" as *;
+
+.footer {
+  padding: 88px 337px 86px;
+  background-color: $bg-dark;
+
+  &__content {
+    @include dis-fl-colm;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.3;
+    color: $text-light;
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 70px;
+  }
+
+  &__divider {
+    background-color: $divider;
+    height: 1px;
+    width: 100%;
+    opacity: 0.25;
+  }
+
+  &__copyright {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+    color: $text-gray-copyright;
+  }
+
+  &__bottom {
+    padding-top: 56px;
+  }
+
+  .button {
+    &.footer {
+      &__tab {
+        font-weight: 500;
+        color: $text-gray-footer;
+        font-size: 18px;
+        line-height: 26px;
+        white-space: nowrap;
+      }
+    }
+  }
+}

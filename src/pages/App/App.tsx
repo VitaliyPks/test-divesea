@@ -1,10 +1,14 @@
-import { fetchNFTs } from "@redux/nftSlice/nftSlice";
-import { Slider } from "components/Slider";
-import useAppSelector, { useAppDispatch } from "hooks/useAppSelector";
 import { useEffect } from "react";
+import { fetchNFTs } from "@redux/nftSlice/nftSlice";
+
+import useAppSelector, { useAppDispatch } from "hooks/useAppSelector";
+
+import { Header } from "components/Header";
+import { Slider } from "components/Slider";
+import { Footer } from "components/Footer";
 
 export const App = () => {
-  const base = "";
+  const base = "app";
   const dispatch = useAppDispatch();
   const { items } = useAppSelector((state) => state.nft);
 
@@ -13,6 +17,10 @@ export const App = () => {
   }, []);
 
   return (
-    <div className={base}>{!!items?.length && <Slider nfts={items} />}</div>
+    <div className={base}>
+      <Header />
+      {!!items?.length && <Slider nfts={items} />}
+      <Footer />
+    </div>
   );
 };

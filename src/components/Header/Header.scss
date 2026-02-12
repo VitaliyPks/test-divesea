@@ -1,0 +1,25 @@
+@use "../../assets/styles/variables.scss" as *;
+
+.header {
+  padding: 46px 337px;
+  background-color: $page-secondary;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 66px;
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 50px;
+  }
+
+  .button {
+    &.header {
+      &__tab {
+        font-weight: 500;
+      }
+    }
+  }
+}

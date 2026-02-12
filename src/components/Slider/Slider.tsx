@@ -49,13 +49,14 @@ export const Slider = ({ nfts }: ISliderProps) => {
 
   return (
     <div className={base}>
+      <h1 className={`${base}__title`}>Weekly - Top NFT</h1>
       <div className={`${base}__container`} style={{ height: `${height}px` }}>
         <motion.div
           className={`${base}__track`}
           ref={trackRef}
           style={{
             x: position,
-            transition: disabled ? "node" : "all 0.125s ease",
+            transition: disabled ? "node" : "all 0.25s ease",
           }}
         >
           {[...nfts, ...nfts].map((nft, idx) => (
