@@ -15,9 +15,9 @@ export const fetchNFTsFromAPI = async (): Promise<APIResponse[]> => {
       },
     );
 
-    return response.data;
+    return response.data.splice(0, 10);
   } catch (error) {
     console.error("API Error:", error);
-    throw error;
+    // throw error;
   }
 };

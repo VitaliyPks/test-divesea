@@ -14,11 +14,6 @@ interface INFTCardProps {
   onClick?: () => void;
 }
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 0 },
-  visible: { opacity: 1, y: 0 },
-};
-
 export const NftCard = ({
   name,
   image,
@@ -30,14 +25,7 @@ export const NftCard = ({
   const timeRemaining = useTimer(endTime);
 
   return (
-    <motion.div
-      className={base}
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      viewport={{ once: true, margin: "-50px" }}
-    >
+    <motion.div className={base}>
       <div className={`${base}__image-container`}>
         <img src={image} alt={name} className={`${base}__image`} />
         <span className={`${base}__timer`}>{timeRemaining}</span>

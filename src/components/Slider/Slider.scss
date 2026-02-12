@@ -2,13 +2,15 @@
 @use "../../assets/styles/mixin.scss" as *;
 
 .slider {
+  @include dis-fl-colm;
   position: relative;
   width: 100%;
-  @include dis-fl-colm;
   gap: 70px;
   overflow-x: hidden;
 
   &__track {
+    position: absolute;
+    left: 0;
     display: flex;
     gap: 40px;
   }

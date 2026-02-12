@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import useMeasure from "react-use-measure";
 
 import { ReactComponent as RightArrow } from "assets/icons/arrow-right.svg";
 import { ReactComponent as LeftArrow } from "assets/icons/arrow-left.svg";
@@ -13,81 +14,55 @@ interface ISliderProps {
   nfts: INFTItem[];
 }
 
-const sliderVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-};
-
-const slideVariants = {
-  hidden: { x: 100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-  },
-};
-
 export const Slider = ({ nfts }: ISliderProps) => {
   const base = "slider";
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [position, setPosition] = useState(0);
+  const [ref, { width, height }] = useMeasure();
+  const [trackRef, { width: widthTrack }] = useMeasure();
 
   const totalItems = nfts.length;
 
-  const slideWidth = 281;
-  const gap = 40;
-  const slideWidthWithGap = slideWidth + gap;
-
-  const handleMouseEnter = () => setIsPaused(true);
-  const handleMouseLeave = () => setIsPaused(false);
-
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalItems);
+    const innerWidth = window.innerWidth;
+    const nextPosition = position - (width + 40) - innerWidth;
+
+    if (Math.abs(nextPosition) >= widthTrack) {
+      setDisabled(true);
+
+      setPosition(nextPosition / 2 + innerWidth + width - 20);
+      setTimeout(() => setDisabled(false));
+    }
+
+    setTimeout(() => setPosition((prev) => prev - (width + 40)));
   };
 
   const goToPrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalItems) % totalItems);
+    if (position >= 0) {
+      setDisabled(true);
+      setPosition(-widthTrack / 2 - 20);
+      setTimeout(() => setDisabled(false));
+    }
+
+    setTimeout(() => setPosition((prev) => prev + (width + 40)));
   };
 
-  useEffect(() => {
-    if (!isPaused && totalItems > 1) {
-      const interval = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % totalItems);
-      }, 5000);
-
-      return () => clearInterval(interval);
-    }
-  }, [isPaused, totalItems]);
-
-  const offset = currentIndex * slideWidthWithGap;
-
   return (
-    <div
-      className={base}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className={`${base}__container`}>
+    <div className={base}>
+      <div className={`${base}__container`} style={{ height: `${height}px` }}>
         <motion.div
           className={`${base}__track`}
-          variants={sliderVariants}
-          initial="hidden"
-          animate="visible"
+          ref={trackRef}
           style={{
-            transform: `translateX(-${offset}px)`,
+            x: position,
+            transition: disabled ? "node" : "all 0.125s ease",
           }}
         >
-          {nfts.map((nft) => (
+          {[...nfts, ...nfts].map((nft, idx) => (
             <motion.div
-              key={nft.id}
+              key={`${nft.id}-${idx}`}
+              ref={ref}
               className={`${base}__card`}
-              variants={slideVariants}
-              initial="hidden"
-              animate="visible"
-              transition={{
-                type: "spring",
-                damping: 20,
-                stiffness: 100,
-              }}
             >
               <NftCard
                 name={nft.name}
@@ -105,7 +80,7 @@ export const Slider = ({ nfts }: ISliderProps) => {
           mode="light"
           className={`${base}__nav ${base}__nav--prev`}
           onClick={goToPrev}
-          disabled={totalItems <= 1}
+          disabled={totalItems <= 1 || disabled}
         >
           <span className={`${base}__nav__icon`}>
             <LeftArrow />
@@ -116,7 +91,7 @@ export const Slider = ({ nfts }: ISliderProps) => {
           mode="light"
           className={`${base}__nav ${base}__nav--next`}
           onClick={goToNext}
-          disabled={totalItems <= 1}
+          disabled={totalItems <= 1 || disabled}
         >
           <span className={`${base}__nav__icon`}>
             <RightArrow />
