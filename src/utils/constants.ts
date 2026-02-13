@@ -28,7 +28,7 @@ export const FOOTER_TABS = [
   "Term & Conditions",
   "About Us",
   "Contact",
- ];
+];
 
 export const MOCK_DATA = [
   {

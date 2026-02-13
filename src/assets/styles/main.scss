@@ -9,9 +9,10 @@
 @use "../../components/Header/Header.scss";
 @use "../../components/Footer/Footer.scss";
 
-
 // Base Components
+@use "../../components/base/Loading/Loading.scss";
 @use "../../components/base/Button";
+@use "../../components/base/Burger";
 
 // Pages
 @use "../../pages/App/App.scss";

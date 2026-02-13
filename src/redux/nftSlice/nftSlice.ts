@@ -65,6 +65,14 @@ const nftSlice = createSlice({
       )
       .addCase(fetchNFTs.rejected, (state, action) => {
         state.status = "failed";
+        state.items = MOCK_DATA.map((item) => ({
+          id: generateId(),
+          name: item.name,
+          image: getRandomImage(),
+          endTime: generateEndTime(),
+          currentBid: generateRandomBid(),
+        }));
+
         state.error = action.payload || "Unknown error occurred";
       });
   },
