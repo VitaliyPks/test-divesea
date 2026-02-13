@@ -24,9 +24,9 @@ export default defineConfig({
     exclude: ["node_modules"],
   },
   server: {
-    host: "localhost",
     port: 3000,
-    open: true,
+    open: false,
+    host: "0.0.0.0",
   },
   build: {
     outDir: "build",
