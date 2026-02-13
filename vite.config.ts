@@ -31,4 +31,5 @@ export default defineConfig({
   build: {
     outDir: "build",
   },
+  base: "/test-divesea/",
 });
