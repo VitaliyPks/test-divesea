@@ -22,7 +22,7 @@ docker-compose up -d
 Необходимо разработать адаптивную вёрстку страницы в соответствии с предоставленным дизайном в [Figma](https://www.figma.com/design/qj4RLCkXNzYKdajhCYIGrT/Frontend-test--UPD-?node-id=7124-27&p=f&t=syuCZ0RlynWVY9lG-0):
 
 Для реализации слайдера требуется подключить публичный API:
-https://api.coingecko.com/api/v3/nfts/list
+```https://api.coingecko.com/api/v3/nfts/list```
 
 В карточках слайдера использовать только поле name, получаемое из ответа API.
 
